@@ -7,9 +7,6 @@ from bs4 import BeautifulSoup
 gqueue = []
 title_list = []
 UNI = []
-with open('UK Universities', 'r') as f:
-    for line in f:
-        UNI.append(line.strip())
 
 # Create a new folder
 def create_folder(folder_path):
@@ -175,8 +172,10 @@ def  crawler():
     else:
         print('Crawling done') 
             
-         
-            
+FileName = input("Welcome to crawling bot of Terminativ Ltd.\n Enter File Name Here..: ")        
+with open(FileName, 'r') as f:
+    for line in f:
+        UNI.append(line.strip())        
 
 for link in UNI:
     pge_url = link
