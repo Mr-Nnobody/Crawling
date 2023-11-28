@@ -23,11 +23,11 @@ def save_file(folder_path, filename, content):
 class bot:
     title = 'University'
     def __init__(self, page_url):
-        create_folder(FileName)
+        create_folder(File)
         bot.Gather_links(page_url)
-        create_folder(bot.title)
+        create_folder(File+'/'+bot.title)
         
-        with open(FileName/bot.title+'/'+bot.title+'_queue', 'a') as f:
+        with open(File+'/'+bot.title+'/'+bot.title+'_queue', 'a') as f:
             for link in gqueue:
                 f.write(link + '\n')
             
@@ -74,10 +74,10 @@ class bot:
             title_list.append('')
         text_content = soup.get_text()
         html_content = response.text
-        save_file(FileName/bot.title, bot.title+'_html', html_content)
-        save_file(FileName/bot.title, bot.title+'_text', text_content) 
-        save_file(FileName/bot.title, bot.title+'_crawled', url)
-        save_file(FileName/bot.title, bot.title+'_title', title)
+        save_file(File+'/'+bot.title, bot.title+'_html', html_content)
+        save_file(File+'/'+bot.title, bot.title+'_text', text_content) 
+        save_file(File+'/'+bot.title, bot.title+'_crawled', url)
+        save_file(File+'/'+bot.title, bot.title+'_title', title)
     #Opening links to get Links within
     def Sub_gather_links(): 
             for link in gqueue:
@@ -172,6 +172,7 @@ def  crawler():
         print('Crawling done') 
             
 FileName = input("Welcome to crawling bot of Terminativ Ltd.\n Enter File Name Here..: ")        
+File = FileName.split('_')[0]
 with open(FileName, 'r') as f:
     for line in f:
         UNI.append(line.strip())        
