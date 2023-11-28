@@ -22,13 +22,12 @@ def save_file(folder_path, filename, content):
 
 class bot:
     title = 'University'
-    pge_url = ''
     def __init__(self, page_url):
-        pge_url = page_url
+        create_folder(FileName)
         bot.Gather_links(page_url)
         create_folder(bot.title)
         
-        with open(bot.title+'/'+bot.title+'_queue', 'a') as f:
+        with open(FileName/bot.title+'/'+bot.title+'_queue', 'a') as f:
             for link in gqueue:
                 f.write(link + '\n')
             
@@ -75,10 +74,10 @@ class bot:
             title_list.append('')
         text_content = soup.get_text()
         html_content = response.text
-        save_file(bot.title, bot.title+'_html', html_content)
-        save_file(bot.title, bot.title+'_text', text_content) 
-        save_file(bot.title, bot.title+'_crawled', url)
-        save_file(bot.title, bot.title+'_title', title)
+        save_file(FileName/bot.title, bot.title+'_html', html_content)
+        save_file(FileName/bot.title, bot.title+'_text', text_content) 
+        save_file(FileName/bot.title, bot.title+'_crawled', url)
+        save_file(FileName/bot.title, bot.title+'_title', title)
     #Opening links to get Links within
     def Sub_gather_links(): 
             for link in gqueue:
