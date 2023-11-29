@@ -94,7 +94,7 @@ class bot:
                             url = bot.Domain_check(href)
                             if len(gqueue) <= 300:
                                 if url != '' and url not in gqueue:
-                                    if url.endswith('.pdf'):
+                                    if url.endswith('.pdf') or  url.endswith('.docx'):
                                         continue
                                     else:
                                         print(f'queuing:  {url}')
@@ -125,7 +125,7 @@ class bot:
                         continue
                 url = bot.Domain_check(href)
                 if url != '' and url not in gqueue:
-                    if url.endswith('.pdf'):
+                    if url.endswith('.pdf') or url.endswith('.docx'):
                         continue
                     else:
                         print(f'queuing:  {url}')
@@ -182,4 +182,3 @@ for link in UNI:
     bot(link)                
     create_threads()
     crawler()   
-    
