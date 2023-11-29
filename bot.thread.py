@@ -102,11 +102,11 @@ class bot:
                                 else:
                                     continue
                             else:
-                                print(f"Queue is full: {len(gqueue)}")
+                                print(f"Queue is full: {len(gqueue)} \n Crawling Commencing\n")
                                 return ''
                           
                 else:
-                    print(f"Queue is full: {len(gqueue)}")
+                    print(f"Queue is full: {len(gqueue)}\n Crawling Commencing\n")
                     return ''       
             
     #Initial Gathering of links on homepage
@@ -176,7 +176,7 @@ File = FileName.split('_')[0]
 with open(FileName, 'r') as f:
     for line in f:
         UNI.append(line.strip())        
-
+print(f'There are a total of {len(UNI)} Universities to crawl')
 for link in UNI:
     pge_url = link
     bot(link)                
