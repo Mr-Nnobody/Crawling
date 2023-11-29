@@ -23,7 +23,6 @@ def save_file(folder_path, filename, content):
 class bot:
     title = 'University'
     def __init__(self, page_url):
-        create_folder(File)
         bot.Gather_links(page_url)
         create_folder(File+'/'+bot.title)
         
@@ -175,7 +174,8 @@ FileName = input("Welcome to crawling bot of Terminativ Ltd.\n Enter File Name H
 File = FileName.split('_')[0]
 with open(FileName, 'r') as f:
     for line in f:
-        UNI.append(line.strip())        
+        UNI.append(line.strip())
+create_folder(File)      
 print(f'There are a total of {len(UNI)} Universities to crawl')
 for link in UNI:
     pge_url = link
