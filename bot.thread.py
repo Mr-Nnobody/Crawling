@@ -56,6 +56,7 @@ class bot:
     #Crawl Page   
     def Crawl_webpage(thread_name, url):
         
+        title = ''
         
         try:
             response = requests.get(url)
@@ -65,7 +66,6 @@ class bot:
         print(thread_name + ' crawling ' + url)
         gqueue.remove(url)
         soup = BeautifulSoup(response.text, 'html.parser')
-        title = ''
         if soup.title:
             title = soup.title.text
             title_list.append(title)
