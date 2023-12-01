@@ -39,7 +39,7 @@ class bot:
             return new_url
         elif re.match(r"^/\w+.+",url):
             new_url = pge_url + url
-            return new_url            
+            return new_url           
         else:
             return url
 
@@ -65,12 +65,12 @@ class bot:
         print(thread_name + ' crawling ' + url)
         gqueue.remove(url)
         soup = BeautifulSoup(response.text, 'html.parser')
-        
+        title = ''
         if soup.title:
             title = soup.title.text
             title_list.append(title)
         else:
-            title_list.append('')
+            title_list.append(title)
         text_content = soup.get_text()
         html_content = response.text
         save_file(File+'/'+bot.title, bot.title+'_html', html_content)
@@ -93,7 +93,7 @@ class bot:
                             url = bot.Domain_check(href)
                             if len(gqueue) <= 300:
                                 if url != '' and url not in gqueue:
-                                    if url.endswith('.pdf') or  url.endswith('.docx'):
+                                    if url.endswith('.pdf') or  url.endswith('.docx') or "?" in url:
                                         continue
                                     else:
                                         print(f'queuing:  {url}')
@@ -124,15 +124,13 @@ class bot:
                         continue
                 url = bot.Domain_check(href)
                 if url != '' and url not in gqueue:
-                    if url.endswith('.pdf') or url.endswith('.docx'):
+                    if url.endswith('.pdf') or url.endswith('.docx') or "?" in url:
                         continue
                     else:
                         print(f'queuing:  {url}')
                         gqueue.append(url)
             
         bot.Sub_gather_links()
-        
-
 
 NUMBER_OF_THREADS = 350
 QUEUE_FILE = bot.title+'queue'
