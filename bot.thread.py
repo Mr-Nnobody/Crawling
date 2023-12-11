@@ -2,10 +2,12 @@ import requests
 import re
 import os
 import threading
+import pandas as pd
 from queue import Queue
 from bs4 import BeautifulSoup
 gqueue = []
 title_list = []
+crawled = []
 UNI = []
 
 # Create a new folder
@@ -62,8 +64,9 @@ class bot:
             response = requests.get(url)
         except: 
             print(f"Couldn't connect to: {url}")
-            return None  
+            return None 
         print(thread_name + ' crawling ' + url)
+        crawled.append(url)
         gqueue.remove(url)
         soup = BeautifulSoup(response.text, 'html.parser')
         if soup.title:
@@ -179,4 +182,11 @@ for link in UNI:
     pge_url = link
     bot(link)                
     create_threads()
-    crawler()   
+    crawler() 
+    data = {
+    "Websites": crawled,
+    "Title": title_list,
+    }
+
+    df = pd.DataFrame(data)
+    df.to_csv('Links-Titles.csv', index=False, mode='a')  
