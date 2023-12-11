@@ -171,7 +171,8 @@ def  crawler():
     else:
         print('Crawling done') 
             
-FileName = input("Welcome to crawling bot of Terminativ Ltd.\n Enter File Name Here..: ")        
+#FileName = input("Welcome to crawling bot of Terminativ Ltd.\n Enter File Name Here..: ")        
+FileName  = 'UK_Universities'
 File = FileName.split('_')[0]
 with open(FileName, 'r') as f:
     for line in f:
