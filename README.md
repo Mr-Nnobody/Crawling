@@ -1,0 +1,12 @@
+A Web Crawler that crawls University domains for useful information about the said university.
+
+
+**WORK FLOW**
+-- Reads the university domains from the UK_Universities file and, 
+-- grabs 300 Urls from within the domain ensuring that all links are not broken and that links belong to the domain
+-- Download text data, page titles from all 300 urls as txt files while logging activities.
+-- makes use of multithreading to perform tasks
+
+
+**UK_Universities**
+-- file contains list of Universities (University Domain) across  the United kingdom.
