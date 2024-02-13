@@ -1,6 +1,10 @@
 A Web Crawler that crawls University domains for useful information about the said university.
 
 
+
+**NB**
+this crawler is the first step to a bigger project: AI for education. the script here is simply for data gathering purposes.
+
 **WORK FLOW**
 -- Reads the university domains from the UK_Universities file and, 
 -- grabs 300 Urls from within the domain ensuring that all links are not broken and that links belong to the domain
