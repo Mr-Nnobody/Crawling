@@ -14,3 +14,7 @@ this crawler is the first step to a bigger project: AI for education. the script
 
 **UK_Universities**
 -- file contains list of Universities (University Domain) across  the United kingdom.
+-- it is worth noting that this list could be changed and another passed into crawler
+
+**OUTPUT**
+--downloaded data is stored as text files in folders
